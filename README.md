@@ -80,6 +80,21 @@ streamlit run app.py
 
 The app will open in your browser at `http://localhost:8501`.
 
+## Deploy to Web (Streamlit Community Cloud)
+
+Deploy your own live instance free:
+
+1. **Fork** this repo or use [bhaskarchoubey07-hub/AI-FRAUD-DETECTION](https://github.com/bhaskarchoubey07-hub/AI-FRAUD-DETECTION)
+2. Go to **[share.streamlit.io](https://share.streamlit.io)**
+3. Sign in with **GitHub**
+4. Click **New app** → Select repo `AI-FRAUD-DETECTION`, branch `main`, main file `app.py`
+5. Click **Deploy**
+
+**Optional – AI audit reports:** In your app’s **Settings → Secrets**, add:
+```
+OPENAI_API_KEY = "sk-your-openai-api-key"
+```
+
 ## Example Output
 
 - **Fraud Score:** 0–100 scale (Low / Medium / High risk)
