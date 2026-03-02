@@ -6,9 +6,12 @@ Uses OpenAI API to generate professional audit reports.
 import os
 from typing import Dict, Any, Optional
 from openai import OpenAI
-from dotenv import load_dotenv
 
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except Exception:
+    pass
 
 
 def get_openai_client() -> Optional[OpenAI]:

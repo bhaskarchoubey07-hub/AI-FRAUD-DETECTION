@@ -4,23 +4,28 @@ Streamlit dashboard for financial fraud risk analysis.
 """
 
 import streamlit as st
-import pandas as pd
-import plotly.graph_objects as go
-import os
-import io
+import traceback
 from pathlib import Path
 
-from utils import load_financial_data, validate_financial_logic
-from fraud_detection import run_full_analysis
-from report_generator import generate_ai_audit_report
-
-# Page config - must be first Streamlit command
 st.set_page_config(
     page_title="AI Fraud Detector | Financial Statement Analysis",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+# Import after page config
+try:
+    import pandas as pd
+    import plotly.graph_objects as go
+    import io
+    from utils import load_financial_data, validate_financial_logic
+    from fraud_detection import run_full_analysis
+    from report_generator import generate_ai_audit_report
+except Exception as e:
+    st.error(f"**Import error:** {e}")
+    st.code(traceback.format_exc())
+    st.stop()
 
 # Premium finance dashboard styling
 st.markdown("""
